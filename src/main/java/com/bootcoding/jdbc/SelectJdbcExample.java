@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class SelectJdbcExample {
     public static void main(String[] args) {
-        try{
+        try {
             //1.load jdbc driver
             Class.forName("org.postgresql.Driver");
 
@@ -22,29 +22,32 @@ public class SelectJdbcExample {
             ResultSet rs = stmt.executeQuery("SELECT * FROM customer where city= 'Yongqin' ");
 
             //Extract result
-            while(rs.next()){
+            while (rs.next()) {
                 //Single row
                 int custId = rs.getInt("customer_id");
                 //int custId2 = rs.getInt(1);
                 String name = rs.getString("cust_name");
                 String city = rs.getString("city");
-                String email = rs.getString ("email");
+                String email = rs.getString("email");
                 int salesman_id = rs.getInt("salesman_id");
 
                 System.out.println("Id =" + custId);
-                System.out.println("Name =" +name);
+                System.out.println("Name =" + name);
                 System.out.println("City =" + city);
                 System.out.println("Email =" + email);
                 System.out.println("salesman_id=" + salesman_id);
             }
             //5.Connection close
             conn.close();
-
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
-
         }
     }
 }
+
+
+
+
+
 
 
